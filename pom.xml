@@ -10,26 +10,31 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>hello-world</module>
+        <module>order-producer</module>
+        <module>order-consumer</module>
     </modules>
 
     <properties>
         <lombok.version>1.16.18</lombok.version>
         <junit.version>4.12</junit.version>
         <log4j.version>1.2.17</log4j.version>
+        <dubbo.version>2.6.5</dubbo.version>
+        <curator-framework.version>2.12.0</curator-framework.version>
+        <dubbo-spring.version>0.2.1.RELEASE</dubbo-spring.version>
     </properties>
 
-    <!--spring-boot-starter-parent 其实不会真正引入依赖，而是起到一个同意配置springboot的版本的作用
-      真正的依赖引入是在子模块的starter引入的时候
-    -->
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.1.RELEASE</version>
     </parent>
 
+
     <dependencyManagement>
 
         <dependencies>
+
             <!--lombok-->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -49,14 +54,38 @@
                 <version>${log4j.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator-framework.version}</version>
+            </dependency>
+
+            <!--dubbo-spring-boot-->
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo-spring.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
 
+    <!--这个插件，可以将应用打包成一个可执行的jar包-->
+    <build>
 
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
 
-
-
-
-
+    </build>
 </project>

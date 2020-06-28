@@ -1,0 +1,27 @@
+#spring:
+#  application:
+#    name: order-consumer
+
+server:
+  port: 7012
+  address: 192.168.5.100
+
+dubbo:
+  application:
+#不能设置 spring.application.name 如果设置了，那么就跳过了 dubbo.application.name的设置,那么在项目启动时就报错
+    name: order-consumer
+    qos-port: 66666
+
+  registry:
+    address: zookeeper://127.0.0.1:2181
+
+  protocol:
+    name: dubbo  # protocol.name 是分布式固定是 dubbo,不要改。
+    port: 20080
+
+  monitor:
+    protocol: registry
+
+  provider:
+    host: 192.168.5.100
+

@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: order-producer
+
+dubbo:
+  application:
+    name: order-producer
+    qos-port: 55555
+
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo  # protocol.name 是分布式固定是 dubbo,不要改。
+    port: 20080
+  monitor:
+    protocol: registry
+  provider:
+    host: 192.168.5.100
+    group: order
+    version: 1
+
+server:
+  port: 7002
+  address: 192.168.5.100
+
+
