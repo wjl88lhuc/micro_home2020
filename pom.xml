@@ -12,6 +12,9 @@
         <module>hello-world</module>
         <module>order-producer</module>
         <module>order-consumer</module>
+        <module>order-provider-withdb</module>
+        <module>common-api</module>
+        <module>order-consumer-withdb</module>
     </modules>
 
     <properties>
@@ -21,6 +24,9 @@
         <dubbo.version>2.6.5</dubbo.version>
         <curator-framework.version>2.12.0</curator-framework.version>
         <dubbo-spring.version>0.2.1.RELEASE</dubbo-spring.version>
+        <mysql.version>5.1.47</mysql.version>
+        <druid.verison>1.1.16</druid.verison>
+        <mybatis.spring.boot.verison>1.3.0</mybatis.spring.boot.verison>
     </properties>
 
 
@@ -71,6 +77,25 @@
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${dubbo-spring.version}</version>
+            </dependency>
+
+            <!-- MySql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!-- Druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.verison}</version>
+            </dependency>
+            <!-- mybatis-springboot整合 -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.verison}</version>
             </dependency>
 
         </dependencies>
